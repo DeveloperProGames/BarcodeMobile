@@ -1,0 +1,30 @@
+<Label>:
+    size_hint: 1, None
+    height: 40
+
+<ScrollableWindow>:
+    image: img
+
+    BoxLayout:
+        size: root.width, root.height
+        size_hint_y: None
+        height: self.minimum_height
+        orientation: "vertical"
+
+        BoxLayout:
+            size_hint_y: None
+            height: self.minimum_height
+            orientation: "vertical"
+            id: labels_box
+
+            Image:
+                id: img
+                size_hint_x: 1
+                size_hint_y: None
+                height: self.width / img.image_ratio
+                allow_stretch: True
+                keep_ratio: False
+
+        Button:
+            text: "Clear Labels"
+            on_press: root.clear_labels()
